@@ -2,7 +2,8 @@ import React from 'react';
 import data from '../../data/serviciosJson'
 import Footer from '../includes/footer';
 import Header from '../includes/header';
-import ServicioCard from '../../components/servicios/CardServicio';
+import ServicioCard from './CardServicio';
+import FormRegistro from "./Formulario";
 
 const Servicio = () => {
 
@@ -19,6 +20,7 @@ const Servicio = () => {
             })}
           </div>
         </section>
+        <FormRegistro />
         <Footer />
       </>
     );

@@ -7,20 +7,23 @@ import img2 from '../../images/11.jpg';
 import img3 from '../../images/14.jpg';
 import img4 from '../../images/15.jpg';
 import menu from '../../images/menu@2x.png';
-import plato from '../../images/plato.jpg';
+import plato from '../../images/plato_banner.png';
 
 
 const seccion_1 = () => {
 
     return (
         <>
-            <div className="contenedor ">
-                <img src={plato} className="img-fluid" alt="..." />
-                <div className="texto-centrado">
-                    <p className="text-center">¡Saborea el mundo, conoce su historia y tradiciones, con nuestros platillos!</p>
+            <div className="py-4">
+            <div className="card bg-dark text-white">
+                <img src={plato} className="card-img" alt="..." />
+                <div className="card-img-overlay">
+                    <p className="card-text fs-1 fw-bolder">¡Saborea el mundo, conoce su historia y tradiciones, con nuestros platillos!</p>
+                
                 </div>
             </div>
-            
+            </div>
+        
             <div className="container py-4">
                 <div className="row">
                     <div className="col-md-6">
@@ -28,7 +31,7 @@ const seccion_1 = () => {
                             <h1 className="fw-light text-center text-lg-start mt-4 mb-0">Recomendación del chef</h1>
                             <div className="col-6 py-2">
                                 <div className="d-block h-100 mb-4">
-                                    <img className="img-fluid " src={img1} alt="" />
+                                    <img className="img-fluid" src={img1} alt="" />
                                 </div>
                             </div>
                             <div className="col-6 py-2">

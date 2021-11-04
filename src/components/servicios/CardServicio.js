@@ -23,7 +23,7 @@ const ServicioCard = (props) => {
                     <div class="card-body">
                         <h1 class="card-title">{props.title}</h1>
                         <p class="card-text pl-2 mt-2">{props.desc}</p>
-                        <button id="botonReserva" class="btn btn-warning">
+                        <button type="button" id="botonReserva" class="btn btn-warning">
                             Reservar
                         </button>
                     </div>
