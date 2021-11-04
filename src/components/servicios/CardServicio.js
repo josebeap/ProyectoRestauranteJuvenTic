@@ -13,7 +13,7 @@ const ServicioCard = (props) => {
             <div class="flip-card-front">
                 <div class="mask">
                     <div class="align-end">
-                    {props.name}
+                    <h1 class="card-title">{props.name}</h1>
                     </div>
                 </div>
                 <img src={props.img} alt="imagen"/>
@@ -21,9 +21,11 @@ const ServicioCard = (props) => {
             <div class="flip-card-back">
                 <div class="row no-gutters">
                     <div class="card-body">
-                        <h5 class="card-title">{props.title}</h5>
+                        <h1 class="card-title">{props.title}</h1>
                         <p class="card-text pl-2 mt-2">{props.desc}</p>
-
+                        <button id="botonReserva" class="btn btn-warning">
+                            Reservar
+                        </button>
                     </div>
                 </div>
             </div>

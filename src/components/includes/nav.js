@@ -8,7 +8,7 @@ const Navi=(props)=>{
           <Link to='/'>Inicio</Link>
           <Link to='/menu'>Menu</Link>
           <Link to='/servicios'>Servicios</Link>
-          <Link to='/about_us'>About us</Link>
+          <Link to='/sobre_nosotros'>Sobre Nosotros</Link>
           <Link to='/login'>Login</Link>
       </nav>
     );

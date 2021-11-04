@@ -56,7 +56,7 @@
   height: 100%;
   overflow: hidden;
   /* color de la mascara */
-  background-color: rgba(62, 69, 81, 0.5);
+  /*background-color: rgba(42, 103, 207, 0.5);
   /* redondeamos la mascara para que se ajuste a la imagen */
   border-radius: 0.5rem;
   /* Posición del título en la parte frontal de la tarjeta */
@@ -66,13 +66,13 @@
   position: absolute;
   top: 85%;
   left: 20px;
-  color: #fafafa;
+  color: #000000;
   font-size: 1.5em;
 }
 
 /* Estructura específica de la cara trasera */
 .flip-card-back {
-  background-color: #6d6d6d;
+  background-color: #000000;
   transform: rotateY(180deg);
 
   /* Ajusta la altura del texto al centro de la tarjeta */
