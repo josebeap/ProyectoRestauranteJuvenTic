@@ -1,7 +1,7 @@
 import React from "react";
 import loginImg from "../../../src/login.svg";
 //<img src={loginImg} />
-import Header from "../../components/includes/header"
+import HeaderSimple from "../HeaderSimple"
 import Footer from "../../components/includes/footer"
 
 export class Login extends React.Component {
@@ -12,7 +12,7 @@ export class Login extends React.Component {
 
         return (
             <div>
-                <Header />
+                <HeaderSimple />
                 <div className="base-container">
 
                     <div className="header">

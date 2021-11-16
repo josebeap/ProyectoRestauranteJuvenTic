@@ -1,15 +1,16 @@
 import React from 'react';
 import data from '../../data/serviciosJson'
 import Footer from '../includes/footer';
-import Header from '../includes/header';
+import HeaderSimple from '../HeaderSimple';
 import ServicioCard from './CardServicio';
 import FormRegistro from "./Formulario";
+//import './StyleService.css';
 
 const Servicio = () => {
 
     return (
       <>
-        <Header />
+        <HeaderSimple />
         <h1 class="text-center">Servicios</h1>
         <hr/>
         <section className="py-4 container">

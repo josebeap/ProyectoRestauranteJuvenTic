@@ -8,7 +8,7 @@ const Formulario=(props) =>{
     const {register, handleSubmit, formState: {errors}}=useForm();
 
     const onSubmit = (data, e)=>{
-        console.log(data)
+        
         props.addComent(data)
         e.target.reset(data)
     }

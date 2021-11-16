@@ -2,15 +2,22 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './styles/comentarios.css';
+/*import SubCom from '../includes/sub_comentario';*/
+/* SubForm from '../includes/subform'*/
 
-const comentario_principal = (props) => {
+const ComentarioPrincipal = (props) => {
+
+    /*const [showSub, setShowSub]=useState(false)*/
 
     return (
         <>
             {
+                /*props.subUsers.length > 0 ?*/
                 props.users.map(user =>(
+                
+                    <li key={user.id}>
 
-                    <div className="comment-main-level" key={user.id}>
+                        <div className="comment-main-level">
                            
                            <div className="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt="" /></div>
                     
@@ -21,14 +28,46 @@ const comentario_principal = (props) => {
                                 <div className="comment-content">
                                     <p>{user.comentarioPrincipal}</p>
                                 </div>
-                                <p type="button" onClick={()=>props.subComentario(user.id)}>Responder</p>
+                                <p type="button">Responder</p>{/*onClick=()=>setShowSub(true)*/}
                             </div>
-                    </div>
+                        </div>
+                        {
+                               /*showSub ? (
+                                <>
+                                    <li>
+                                    <SubForm/>
+                                    </li>
+                                </>
+                            ) : (
+                                <>
+                                </>
+                            )*/
+                        }
+                        {
+                            /* props.subUsers.map(sub =>(
+                                                                 
+                                 sub.idP === user.id ? (
+                                    <>   
+                                        
+                                        <SubCom key={sub} sub={sub}/>
+                                    </>
+                                 ):(
+                                    <>
+                                      {
+                                          console.log("El usuario "+user.nombre+" no tiene subcomentarios")
+                                      }
+                                    </>
+                                 )
+
+                             ))*/
+                        }
+                    </li>
                     
-                    
-                ))     
+
+                ))
             }
-            {/*modal form* data-bs-toggle="modal" data-bs-target=""*/}
+
+            {/*modal form* data-bs-toggle="modal" data-bs-target=""
             <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-sm">
                     <div className="modal-content">
@@ -52,9 +91,9 @@ const comentario_principal = (props) => {
                         </div>
                     </div>
                 </div>
-            </div>
+        </div>*/}
         </>
     )
 }
 
-export default comentario_principal;
+export default ComentarioPrincipal;

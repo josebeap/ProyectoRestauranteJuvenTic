@@ -31,6 +31,12 @@
   margin: auto;
 }
 
+/*.bg-1{
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+}*/
+
 /*Contenedor seccion presentacion*/
 .contenedor{
   position: relative;
@@ -52,7 +58,7 @@
 /*Texxto centrado*/
 .texto-centrado{
   position: absolute;
-  top: 40%;
+  top: 160%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -69,6 +75,32 @@
 
 
 /*SERVICIOS*/
+
+.bg-2{
+
+  background-image: url("../../../images/salon.jpg");
+  background-attachment: scroll;
+	background-clip: initial;
+	background-color: rgba(0, 0, 0, 0);
+	background-origin: initial;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+
+}
+
+.bg-2::before {
+  background:  #080808b2;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  opacity: 0.3;
+}
 
 *{
   transition:200ms;
