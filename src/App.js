@@ -3,12 +3,12 @@ import Home from './pages/Home'
 import {Login} from "./components/login/index";
 import Servicio from "./components/servicios/Servicios"
 import Sobre_nosotros from "./components/sobre_nosotros/index"
-import Menu from "./pages/Menu"
+//import Menu from "./pages/Menu"
+import Menu from "./components/carrito/indexCarrito"
 import ShopState from './context/shop/ShopState';
 
 function App() {
   return (
-    <ShopState>
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
@@ -18,7 +18,6 @@ function App() {
         <Route exact path="/login" component={Login} />
       </Switch>
     </BrowserRouter>
-    </ShopState>
   );
 }
 

@@ -4,7 +4,7 @@ import Footer from '../includes/footer';
 import HeaderSimple from '../HeaderSimple';
 import ServicioCard from './CardServicio';
 import FormRegistro from "./Formulario";
-//import './StyleService.css';
+import './StyleService.css';
 
 const Servicio = () => {
 
