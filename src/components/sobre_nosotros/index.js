@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import Footer from '../includes/footer';
 import HeaderSimple from '../HeaderSimple';
 import Presentacion from "./presentacion"
@@ -8,7 +8,21 @@ import Testimonios from "./testimonios"
 //import Comentarios from "../includes/comentario_principal"
 //import SubComentario from "../includes/sub_comentario"
 
-const sobre_nosotros=(props)=>{
+const Sobre_nosotros=()=>{
+
+  const url = "http://localhost:33144/api/empleado";
+  const [empleadosItems, setEmpleadosItems] = useState();
+
+  const fetchApi = async () => {
+    const response = await fetch(url);
+    const responseJSON = await response.json();
+    setEmpleadosItems(responseJSON);
+    console.log(responseJSON);
+  };
+  useEffect(() => {
+    fetchApi();
+  }, []);
+
 
     return(
       <>
@@ -16,10 +30,10 @@ const sobre_nosotros=(props)=>{
         <h1 class="text-center">Sobre Nosotros</h1>
         <hr/>
         <Presentacion/>
-        <Equipo/>
+        <Equipo empleadosItems={empleadosItems}/>
         <Testimonios/>
         <Footer/>
       </>
     );
 }
-export default sobre_nosotros;
+export default Sobre_nosotros;

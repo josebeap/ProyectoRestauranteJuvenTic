@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import data from '../../data/serviciosJson'
 import Footer from '../includes/footer';
 import HeaderSimple from '../HeaderSimple';
@@ -7,7 +7,18 @@ import FormRegistro from "./Formulario";
 import './StyleService.css';
 
 const Servicio = () => {
+  const url = "http://localhost:33144/api/servicio";
+  const [serviciosItems, setServiciosItems] = useState();
 
+  const fetchApi = async () => {
+    const response = await fetch(url);
+    const responseJSON = await response.json();
+    setServiciosItems(responseJSON);
+    console.log(responseJSON);
+  };
+  useEffect(() => {
+    fetchApi();
+  }, []);
     return (
       <>
         <HeaderSimple />
@@ -15,9 +26,10 @@ const Servicio = () => {
         <hr/>
         <section className="py-4 container">
           <div className="row justify-content-center">
-            {data.serviceItems.map((item) => {
-              return (<ServicioCard img={item.img} title={item.title} name={item.name} 
-                desc={item.desc} />)
+            {!serviciosItems ? <h2> carga </h2>:
+            serviciosItems.map((item) => {
+              return (<ServicioCard img={item.img} title={item.titulo} name={item.titulo} 
+                desc={item.descripcion} />)
             })}
           </div>
         </section>
