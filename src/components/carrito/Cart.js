@@ -24,7 +24,7 @@ const Cart = ({ productItems, addProduct, restProduct, cleanAll }) => {
 
                 {productItems.length === 0 && (<p className="cart-item-empty">No se han agregado prodcutos</p>)}
 
-                <div>
+                <div id="todoCarrito">
                     {productItems.map((it) => (
                         <div key={it.id} className="cart-item-list">
                             <img className="cart-item-img" src={it.img} alt={it.nombre} />
@@ -49,7 +49,7 @@ const Cart = ({ productItems, addProduct, restProduct, cleanAll }) => {
                     {productItems.length >= 1 && (
                         <>
                             <div className="btn-group">
-                                <Button variant="primary" size="lg" onClick={handleShow}>Realizar Compra</Button>
+                                <Button variant="primary" size="lg" onClick={() => handleShow()}>Realizar Compra</Button>
                             </div>
 
                             <ModCar show={show} handleClose={handleClose} />

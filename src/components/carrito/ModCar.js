@@ -6,6 +6,46 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const ModCar = ({show, handleClose}) => {
 
+  function sendEmail() {
+    let nombre = document.getElementById("recipient-name").value;
+    let email = document.getElementById("recipient-correo").value;
+    
+    let carritoItems = document.getElementById("todoCarrito").textContent;
+
+    let mensaje = carritoItems;
+
+    sendEmailCliente(nombre, email, mensaje);
+    sendEmailRestaurante(nombre, email, mensaje);
+
+    console.log("Mensaje: ",mensaje)
+
+    alert("Solicitud pedido exitosa");
+  }
+  function sendEmailCliente(nombre, email, mensaje) {
+    window.Email.send({
+      Host: "smtp.gmail.com",
+      Username: "josebeap11@gmail.com",
+      Password: "vvtgsyoewgtiafmg",
+      To: email,
+      From: "josebeap11@gmail.com",
+      Subject: nombre + ", este es tu pedido",
+      Body: mensaje
+    });
+  }
+  function sendEmailRestaurante(nombre, email, mensaje) {
+    window.Email.send({
+      Host: "smtp.gmail.com",
+      Username: "josebeap11@gmail.com",
+      Password: "vvtgsyoewgtiafmg",
+      To: "jose.1701710903@ucaldas.edu.co",
+      From: "josebeap11@gmail.com",
+      Subject: nombre + " Ha realizado una compra",
+      Body: nombre + "<br>" + email + "<br> " + mensaje
+    });
+  }
+
+
+
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -20,7 +60,7 @@ const ModCar = ({show, handleClose}) => {
           <p id="p1" className="text-center"></p>
           {/* <p id="p2" className="fw-bold text-center"></p> */}
 
-          <form /* onsubmit="sendEmail()" */>
+          <form onSubmit={()=>sendEmail()}>
             <br />
             <div className="mb-3">
               <label htmlFor="recipient-name" className="col-form-label">Nombre:</label>

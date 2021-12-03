@@ -8,6 +8,7 @@ import './styles/index.css'
 
 const Navi=(props)=>{
   const { isAuthenticated } = useAuth0();
+  if (isAuthenticated){
     return(
       <nav className="nav-header">
           <Link to='/'>Inicio</Link>
@@ -16,16 +17,19 @@ const Navi=(props)=>{
           <Link to='/sobre_nosotros'>Sobre Nosotros</Link>
           <Link to='/perfil'>Perfil</Link>
           <Link to='/carrito'><FiShoppingCart size='2em'/></Link>
-          <Link class="nav-item px-3">
-              {isAuthenticated ? (
-                <>
-                  <LogoutButton />
-                </>
-              ) : (
-                <LoginButton />
-              )}
-            </Link>
+          <Link class="nav-item px-3"> <LogoutButton /> </Link>
       </nav>
     );
+  }else{
+    return(
+      <nav className="nav-header">
+          <Link to='/'>Inicio</Link>
+          <Link to='/menu'>Menu</Link>
+          <Link to='/servicios'>Servicios</Link>
+          <Link to='/sobre_nosotros'>Sobre Nosotros</Link>
+          <Link class="nav-item px-3"> <LoginButton /> </Link>
+      </nav>
+    );
+  }
 }
 export default Navi;

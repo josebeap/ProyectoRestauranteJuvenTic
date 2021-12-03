@@ -32,12 +32,20 @@ const FormReserva = () => {
   function sendEmail() {
     let nombre = document.getElementById("nombre").value;
     let email = document.getElementById("email").value;
-    sendEmailCliente(nombre, email);
-    sendEmailRestaurante(nombre, email);
+    let fecha = document.getElementById("fecha").value;
+    let telefono = document.getElementById("telefono").value;
+    let descripcion = document.getElementById("descripcion").value;
+    let servicio = document.getElementById("servicio").value;
+    let autoriza = document.getElementById("autoriza").value;
+    let mensaje = "Reserva para el: " + fecha + " para el servicio de " + servicio + "<br>"
+                  + "nombre: " + nombre + "<br>"
+                  + "email: " + email + "<br>" 
+    sendEmailCliente(nombre, email, mensaje);
+    sendEmailRestaurante(nombre, email, mensaje);
 
     alert("Solicitud reserva exitosa");
   }
-  function sendEmailCliente(nombre, email) {
+  function sendEmailCliente(nombre, email, mensaje) {
     window.Email.send({
       Host: "smtp.gmail.com",
       Username: "josebeap11@gmail.com",
@@ -45,10 +53,10 @@ const FormReserva = () => {
       To: email,
       From: "josebeap11@gmail.com",
       Subject: nombre + ", este es tu pedido",
-      Body: "mensaje",
+      Body: mensaje,
     });
   }
-  function sendEmailRestaurante(nombre, email) {
+  function sendEmailRestaurante(nombre, email, mensaje) {
     window.Email.send({
       Host: "smtp.gmail.com",
       Username: "josebeap11@gmail.com",
@@ -56,7 +64,7 @@ const FormReserva = () => {
       To: "jose.1701710903@ucaldas.edu.co",
       From: "josebeap11@gmail.com",
       Subject: nombre + " Ha realizado una compra",
-      Body: nombre + "<br>" + email + "<br> " + "mensaje",
+      Body: nombre + "<br>" + email + "<br> " + mensaje,
     });
   }
 
