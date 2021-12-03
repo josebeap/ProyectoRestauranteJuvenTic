@@ -31,6 +31,7 @@ const ComentarioPrincipal = (props) => {
                                 <p type="button">Responder</p>{/*onClick=()=>setShowSub(true)*/}
                             </div>
                         </div>
+
                         {
                                /*showSub ? (
                                 <>

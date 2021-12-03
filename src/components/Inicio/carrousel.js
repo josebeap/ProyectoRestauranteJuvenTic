@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import i1 from '../../images/oferta1.png';
 import i2 from '../../images/oferta2.png';
-import i3 from '../../images/ejem3.jpg';
 
 class Carrousel extends Component {
 
@@ -20,26 +19,22 @@ class Carrousel extends Component {
             </div>
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img src={i1} className="d-block w-100" alt="..." style={{width: '640px', height: '360px'}} />
+                    <img src={i1} className="d-block w-100" alt="..."/>
                     
 {/*<div className="carousel-caption d-md-block">
                         <h5>Sabores que exaltan sus sentidos</h5>
        </div>*/}
                 </div>
                 <div className="carousel-item">
-                    <img src={i2} className="d-block w-100" alt="..." style={{width: '640px', height: '360px'}}/>
+                    <img src={i2} className="d-block w-100" alt="..."/>
                    
                     {/*<div className="carousel-caption d-md-block">
                         <h5>Second slide label</h5>
     </div>*/}
                 </div>
-                <div className="carousel-item">
-                    <img src={i3} className="d-block w-100" alt="..." style={{width: '640px', height: '360px'}}/>
-                   
-                    {/*<div className="carousel-caption d-md-block">
-                        <h5>Third slide label</h5>
-</div>*/}
-                </div>
+                {/* <div className="carousel-item">
+                    <img src={i3} className="d-block w-100" alt="..."/>
+                </div> */}
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true" />

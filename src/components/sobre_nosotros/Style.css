@@ -11,7 +11,7 @@
 	background-size: cover;
 }
 .about-section-box .img-fluid{
-	box-shadow: 20px 20px 0px #3385d9;
+	box-shadow: 20px 20px 0px rgb(255,200,0);
 }
 .inner-column{
 	text-align: left;
@@ -23,7 +23,7 @@
 	font-weight: 500;
 }
 .inner-column h1 span{
-	color: #3385d9;
+	color: rgb(255,200,0);
 }
 .inner-column h4{
 	font-size: 16px;

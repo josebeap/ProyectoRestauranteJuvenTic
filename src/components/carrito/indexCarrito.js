@@ -1,55 +1,77 @@
+import { useEffect, useState } from 'react';
 import HeaderSimple from '../HeaderSimple';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Main from './Main';
-
-import data from '../../data/data';
-
-import { useState } from 'react';
-
 import Cart from './Cart';
 
 function Carrito() {
-  const { products } = data;
-  const [cartItems, setCartItems] = useState([]);
+
+  let componentMounted = true;
+  const [cartItems, setCartItems] = useState([]); /*estado donde se va a cargar la info de la bd*/
+  const [productItems, setProductItems] = useState([]); /*estado donde se va a pasar info de la bd cargada*/
+  
+  useEffect(() => {
+    const getProducts = async () => {
+      
+      const response = await fetch("http://localhost:33144/api/plato");
+      if (componentMounted) {
+        setCartItems(await response.clone().json());
+       /*  console.log(cartItems); */
+      }
+
+      return () => {
+        componentMounted = false;
+      };
+    };
+
+    getProducts();
+  }, []);
+
+
+  /* const {products}=cartItems; */
+  /* const { products } = data;
+  const [cartItems, setCartItems] = useState(); */
    
   const addProduct=(product)=>{
-    const productExist=cartItems.find((item)=>item.id===product.id);
+    const productExist=productItems.find((item)=>item.id===product.id);
     
     if(productExist){
-        setCartItems(cartItems.map((it)=> it.id===product.id ?
+        setProductItems(productItems.map((it)=> it.id===product.id ?
         {...productExist, quantity: productExist.quantity+1} : it));
     
     }
     else
     {
-        setCartItems([...cartItems, {...product, quantity:1}]);
+        setProductItems([...productItems, {...product, quantity:1}]);
 
     }
 }
 
 const restProduct=(product)=>{
-    const productExist=cartItems.find((item)=>item.id===product.id);
+    const productExist=productItems.find((item)=>item.id===product.id);
 
     if(productExist.quantity===1){
-        setCartItems(cartItems.filter((item)=> item.id !== product.id));
+        setProductItems(productItems.filter((item)=> item.id !== product.id));
     }
     else
     {
-        setCartItems(cartItems.map((item)=>item.id===product.id ? {...productExist, quantity: productExist.quantity-1}:item));
+        setProductItems(productItems.map((item)=>item.id===product.id ? {...productExist, quantity: productExist.quantity-1}:item));
     }
 }
 
 const cleanAll=()=>{
-  setCartItems([]);
+  setProductItems([]);
   
 }
 
 
   return (
     <div className="App">
-      <HeaderSimple countCartItems={cartItems.length}></HeaderSimple>
-      <Cart cartItems={cartItems} addProduct={addProduct} restProduct={restProduct} cleanAll={cleanAll}/>
+      <HeaderSimple/>
+      <Cart productItems={productItems} addProduct={addProduct} restProduct={restProduct} cleanAll={cleanAll}/>
       <div className="row p-5">
-        <Main products={products} addProduct={addProduct}></Main>
+        <Main cartItems={cartItems} addProduct={addProduct}/>
       </div>
     </div>
   );

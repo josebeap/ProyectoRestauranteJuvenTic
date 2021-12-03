@@ -2,7 +2,7 @@ import React from "react";
 import loginImg from "../../../src/login.svg";
 //<img src={loginImg} />
 import HeaderSimple from "../HeaderSimple"
-import Footer from "../../components/includes/footer"
+import Footer from "../../components/Inicio/footer"
 
 export class Login extends React.Component {
     constructor(props) {

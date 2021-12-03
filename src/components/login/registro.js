@@ -1,7 +1,7 @@
 import React from "react";
 import loginImg from "../../../src/login.svg";
 //<img src={loginImg} />
-import Header from "../../components/includes/header"
+import Header from "../../components/HeaderSimple"
 
 
 export class Registro extends React.Component {

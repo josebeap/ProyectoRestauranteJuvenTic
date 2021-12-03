@@ -75,7 +75,7 @@ body {
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
-}*/
+}*//
 
 .reply-list:before, .reply-list:after {display: none;}
 /*.reply-list li:before {

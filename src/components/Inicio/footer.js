@@ -29,7 +29,7 @@ const Footer = () =>{
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                        <p className="company-name">All Rights Reserved. © 2021 Food World Design By: Jhonatan, Miguel y Jose</p> 
+                        <p className="company-name">All Rights Reserved. © 2021 Food World Design By: Jhonatan y Jose</p> 
                         </div>
                     </div>
                 </div>
