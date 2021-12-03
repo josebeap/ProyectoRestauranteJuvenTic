@@ -8,7 +8,7 @@ import {CircularProgress} from "@material-ui/core"
 import './StyleService.css';
 
 const Servicio = () => {
-  const url = "http://localhost:33144/api/servicio";
+  const url = "https://backend-worldfood-juventic.herokuapp.com/api/servicio";
   const [serviciosItems, setServiciosItems] = useState();
 
   const fetchApi = async () => {

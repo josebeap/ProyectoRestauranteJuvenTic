@@ -11,7 +11,7 @@ const Galeria = () => {
     useEffect(() => {
         const getProducts = async () => {
 
-            const response = await fetch("http://localhost:33144/api/plato");
+            const response = await fetch("https://backend-worldfood-juventic.herokuapp.com/api/plato");
             if (componentMounted) {
                 setAddPlato(await response.clone().json());
                 /*  console.log(cartItems); */
