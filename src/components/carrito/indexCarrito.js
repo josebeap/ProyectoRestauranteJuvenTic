@@ -1,45 +1,55 @@
 import HeaderSimple from '../HeaderSimple';
 import Main from './Main';
-import Basket from './Basket';
+
 import data from '../../data/data';
+
 import { useState } from 'react';
+
+import Cart from './Cart';
+
 function Carrito() {
   const { products } = data;
   const [cartItems, setCartItems] = useState([]);
-  const onAdd = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    if (exist) {
-      setCartItems(
-        cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, qty: 1 }]);
+   
+  const addProduct=(product)=>{
+    const productExist=cartItems.find((item)=>item.id===product.id);
+    
+    if(productExist){
+        setCartItems(cartItems.map((it)=> it.id===product.id ?
+        {...productExist, quantity: productExist.quantity+1} : it));
+    
     }
-  };
-  const onRemove = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
-    } else {
-      setCartItems(
-        cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-        )
-      );
+    else
+    {
+        setCartItems([...cartItems, {...product, quantity:1}]);
+
     }
-  };
+}
+
+const restProduct=(product)=>{
+    const productExist=cartItems.find((item)=>item.id===product.id);
+
+    if(productExist.quantity===1){
+        setCartItems(cartItems.filter((item)=> item.id !== product.id));
+    }
+    else
+    {
+        setCartItems(cartItems.map((item)=>item.id===product.id ? {...productExist, quantity: productExist.quantity-1}:item));
+    }
+}
+
+const cleanAll=()=>{
+  setCartItems([]);
+  
+}
+
+
   return (
     <div className="App">
       <HeaderSimple countCartItems={cartItems.length}></HeaderSimple>
+      <Cart cartItems={cartItems} addProduct={addProduct} restProduct={restProduct} cleanAll={cleanAll}/>
       <div className="row p-5">
-        <Main products={products} onAdd={onAdd}></Main>
-        <Basket
-          cartItems={cartItems}
-          onAdd={onAdd}
-          onRemove={onRemove}
-        ></Basket>
+        <Main products={products} addProduct={addProduct}></Main>
       </div>
     </div>
   );
